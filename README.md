@@ -1,0 +1,4 @@
+OpenEventPlanner
+================
+
+Event organizer
