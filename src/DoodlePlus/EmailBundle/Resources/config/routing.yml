@@ -1,0 +1,7 @@
+email_send:
+    pattern: send
+    defaults: { _controller: DoodlePlusEmailBundle:Email:send }
+
+saving_answer_event:
+    pattern: answer/{user}/{event}/{answerUser}/{withPartner}
+    defaults: { _controller: DoodlePlusEmailBundle:Email:answer, withPartner: null }

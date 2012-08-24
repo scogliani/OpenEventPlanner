@@ -1,0 +1,27 @@
+<div class="fos_user_user_show">
+	<ul>
+		<li>{{ 'profile.show.firstname'|trans({}, 'FOSUserBundle') }}: {{ user.firstname }}</li>
+		<li>{{ 'profile.show.lastname'|trans({}, 'FOSUserBundle') }}: {{ user.lastname }}</li>
+		<li>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ user.email }}</li>
+	</ul>
+	
+	<table border=1>
+		<tr>
+			<th>Title</th>
+			<th>Answer</th>
+		</tr>
+		{% for guestGroupEvent in guestGroupEvents %}
+		<tr>
+			<td>{{ guestGroupEvent.titleEvent }}</td>
+			{% if guestGroupEvent.responseEvent is null %}
+			<td>No answer</td>
+			{% elseif guestGroupEvent.responseEvent.answerUser == true %}
+			<td>Yes</td>
+			{% else %}
+			<td>No</td>
+			{% endif %}
+		</tr>
+		{% endfor %}
+	<table>
+	
+</div>

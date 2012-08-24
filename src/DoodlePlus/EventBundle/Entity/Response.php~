@@ -1,0 +1,35 @@
+<?php
+
+namespace DoodlePlus\EventBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity
+ */
+class Response {	
+	/**
+	 * @ORM\Id
+	 * @ORM\ManyToOne(targetEntity="Event", inversedBy="responseUser")
+	 * @ORM\JoinColumn(name="idEvent", onDelete="CASCADE", onUpdate="CASCADE")
+	 */
+	protected $idEvent;
+	
+	/**
+	 * @ORM\Id
+	 * @ORM\ManyToOne(targetEntity="DoodlePlus\UserBundle\Entity\User", inversedBy="responseEvent")
+	 * @ORM\JoinColumn(name="idUser")
+	 */
+	protected $idUser;
+
+	/**
+     * @ORM\Column(type="boolean")
+     */
+	protected $answerUser;
+	
+	/**
+     * @ORM\Column(type="boolean")
+     */
+	protected $withPartner;
+}
