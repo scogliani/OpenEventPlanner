@@ -76,5 +76,7 @@ sonata_user:
 
 sonata_admin:
     title:      OpenEventPlanner Admin
+    templates:
+        layout: DoodlePlusAdminBundle::standard_layout.html.twig
 
 lk_twigstring: ~

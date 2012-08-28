@@ -3,7 +3,6 @@ app/bootstrap*
 
 # Symfony directories
 vendor/*
-!vendor/bundles/Sonata/AdminBundle/Resources/views/standard_layout.html.twig 
 */logs/*
 */cache/*
 web/uploads/*
