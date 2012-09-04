@@ -8,7 +8,7 @@ $(function() {
 					buttonImageOnly: true,
 					hourGrid: 4,
 					minuteGrid: 15,
-					minDate: new Date
+					minDate: new Date 
 				}).attr("readonly","readonly");
 
 				$('form input.datetimer1Begin, form input.datetimer2Begin').datetimepicker({

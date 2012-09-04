@@ -3,7 +3,7 @@
 * By: Trent Richardson [http://trentrichardson.com]
 * Version 0.9.9
 * Last Modified: 02/05/2012
-* 
+*  
 * Copyright 2012 Trent Richardson
 * Dual licensed under the MIT and GPL licenses.
 * http://trentrichardson.com/Impromptu/GPL-LICENSE.txt
