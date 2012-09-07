@@ -1,5 +1,7 @@
 # app/config/security.yml
 security:
+    acl:
+        connection: default
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
  
@@ -17,6 +19,8 @@ security:
  
         # -> custom firewall for the admin area of the URL
         admin:
+            switch_user:        true
+            context:            user
             pattern:      /admin(.*)
             form_login:
                 provider:       custom
@@ -35,13 +39,15 @@ security:
                 use_referer:                    false
             logout:
                 path:           /admin/logout
-                target:         /admin
+                target:         /admin/login
             anonymous:    true
         # -> end custom configuration
  
         # defaut login area for standard users
         main:
-            pattern:      /.*
+            switch_user:        true
+            context:            user
+            pattern:      .*
             form_login:
                 provider:       custom
                 remember_me: true

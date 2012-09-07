@@ -69,7 +69,7 @@ fos_user:
         group_class: DoodlePlus\UserBundle\Entity\Batch
 
 sonata_user:
-    security_acl:     false
+    security_acl:     true
     class:
         user:         DoodlePlus\UserBundle\Entity\User
         group:        DoodlePlus\UserBundle\Entity\Batch

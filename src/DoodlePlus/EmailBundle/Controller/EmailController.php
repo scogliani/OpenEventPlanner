@@ -33,13 +33,33 @@ class EmailController extends Controller {
 				
 				$message = $emailGuest->getContent();
 				
+				$withPartner = null;
+				
+				if ($event->getOpenGuestsGuest()) {
+					if (!strcmp($event->getWithSo(), "Partner")) {
+						$withPartner = false;
+					}
+				}
+				
 				$message .= "
+				<a style='background-color: green; text-decoration: none; color: white; border: 1px solid black; padding: 2px' href='" .
+				$router->generate("saving_answer_event", array("user" => $user->getId(), "event" => $event->getId(), "answerUser" => 1, "withPartner" => $withPartner), true) . "'>I am going to be present</a>
+				";
 				
-<a style='background-color: green; text-decoration: none; color: white; border: 1px solid black; padding: 2px' href='" .
-				$router->generate("saving_answer_event", array("user" => $user->getId(), "event" => $event->getId(), "answerUser" => 1), true) . "'>I am going to be present</a>
+				if ($event->getOpenGuestsGuest()) {
+					if (!strcmp($event->getWithSo(), "Partner")) {
+						$withPartner = true;
+					
+						$message .= "<a style='background-color: green; text-decoration: none; color: white; border: 1px solid black; padding: 2px' href='" .
+				$router->generate("saving_answer_event", array("user" => $user->getId(), "event" => $event->getId(), "answerUser" => 1, "withPartner" => $withPartner), true) . "'>I am going to be present with my partner +</a>
+				";
 				
-<a style='background-color: red; text-decoration: none; color: white; border: 1px solid black; padding: 2px' href='" .
-				$router->generate("saving_answer_event", array("user" => $user->getId(), "event" => $event->getId(), "answerUser" => 0), true) . "'>I am not going to be present</a>";
+					}
+				}
+				
+				$message .= "<a style='background-color: red; text-decoration: none; color: white; border: 1px solid black; padding: 2px' href='" .
+				$router->generate("saving_answer_event", array("user" => $user->getId(), "event" => $event->getId(), "answerUser" => 0), true) . "'>I am not going to be present</a>
+				";
 				
 				$emailTitle = $emailGuest->getTitle();
 				eval("\$emailTitle = \"$emailTitle\";");

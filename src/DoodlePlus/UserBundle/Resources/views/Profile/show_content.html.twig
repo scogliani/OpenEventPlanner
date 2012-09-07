@@ -16,7 +16,13 @@
 			{% if guestGroupEvent.responseEvent is null %}
 			<td>No answer</td>
 			{% elseif guestGroupEvent.responseEvent.answerUser == true %}
-			<td>Yes</td>
+			<td>Yes
+				{% if guestGroupEvent.responseEvent.withPartner == true %}
+				, with a partner
+				{% elseif guestGroupEvent.responseEvent.withPartner == false %}
+				, without partner
+				{% endif %}
+			</td>
 			{% else %}
 			<td>No</td>
 			{% endif %}
